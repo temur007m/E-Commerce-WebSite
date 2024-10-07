@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-Commerce Store</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        // JavaScript for image slider
+        let currentImageIndex = 0;
+        const images = ["images/product.jpg", "images/product1-2.jpg", "images/product1-3.jpg"];
+
+        function showImage(index) {
+            const imgElement = document.getElementById('product-image');
+            imgElement.src = images[index];
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        function previousImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>bambu eco friendly eyewear</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="buy.html">Buy Now</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-details">
+        <div class="container">
+            <div class="image-slider">
+                <button class="slider-btn" onclick="previousImage()">&#10094;</button>
+                <img src="images/product1-1.jpg" id="product-image" alt="Product Image" class="product-image">
+                <button class="slider-btn" onclick="nextImage()">&#10095;</button>
+            </div>
+            <h2>Youngblood</h2>
+            <p class="price">$99.99</p>
+            <p>The game has truly changed! This all bamboo design is completely unique. They are extremely light-weight and have salt resistant hardware. The 5 layer bamboo frame is built to last. These are the perfect shades for anyone who is on the water.</p>
+
+            <a href="buy.html" class="btn buy-btn">Buy Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My E-Commerce Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            showImage(currentImageIndex);
+        });
+    </script>
+</body>
+
+</html>
